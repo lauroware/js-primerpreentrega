@@ -3,6 +3,7 @@ function correr() {
   let apellidoIngresado = prompt("Ingrese su apellido");
   let contactoIngresado = prompt("Ingrese su correo electrónico");
 
+ ///condiocional y while:
   if (
     nombreIngresado != "" &&
     apellidoIngresado != "" &&
@@ -57,12 +58,16 @@ function correr() {
     cantidaddispositivosIngresado
   );
   alert("El valor de suscripción mensual es:" + "\n" + resultado);
+ 
+  ///aca use el for
 
   for (let i = 1; i <= 3; i++) {
     let ingresarDia = prompt("Ingrese Dia disponble para hacer la conexion");
 
     alert("Opcion " + i + " para el día: " + ingresarDia);
   }
+
+  ///aqui use otro condicional:
 
   if (resultado >= 10000) {
     alert(
