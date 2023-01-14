@@ -3,15 +3,18 @@ const guardarProductosCarrito = (productos) => {
     localStorage.setItem("carrito", JSON.stringify(productos));
 }
 
+
 const cargarProductosCarrito = () => {
     return JSON.parse(localStorage.getItem("carrito")) || [];
 }
+
 
 const estaEnElCarrito = (id) => {
     const productos_carrito = cargarProductosCarrito();
 
     return productos_carrito.some(item => item.id === id);
 }
+
 
 const agregarAlCarrito = (id) => {
     const productos = cargarProductosLS();
@@ -30,6 +33,7 @@ const agregarAlCarrito = (id) => {
     renderBotonCarrito();
 }
 
+
 const eliminarProducto = (id) => {
     const productos_carrito = cargarProductosCarrito();
     const productos = productos_carrito.filter(item => item.id !== id);
@@ -38,17 +42,20 @@ const eliminarProducto = (id) => {
     renderBotonCarrito();
 }
 
+
 const vaciarCarrito = () => {
     localStorage.removeItem("carrito");
     renderProductosCarrito();
     renderBotonCarrito();
 }
 
+
 const totalCarrito = () => {
     const productos_carrito = cargarProductosCarrito();
 
     return productos_carrito.reduce((total, item) => total += item.cantidad, 0);
 }
+
 
 const sumaCarrito = () => {
     const productos_carrito = cargarProductosCarrito();
@@ -58,7 +65,7 @@ const sumaCarrito = () => {
 
 const renderBotonCarrito = () => {
     let salida = `<button type="button" class="btn btn-secondary position-relative">
-        <img src="imagenes/boton carrito.svg" alt="Carrito" width="24">
+        <img src="imagenes/boton carrito.svg" alt="Carrito" width="45">
         <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">${totalCarrito()}</span>
     </button>`;
     document.getElementById("boton_carrito").innerHTML = salida;

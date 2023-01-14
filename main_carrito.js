@@ -4,7 +4,7 @@ const renderProductosCarrito = () => {
     let salida = "";
 
     if (totalCarrito() > 0) {    
-        salida = `<table class="table-dark">
+        salida = `<table class="table-secomdary">
         <tbody>
         <tr>
         <td colspan="5" class="text-end"><a href="#" class="btn btn-dark" onClick="vaciarCarrito()">Vaciar Carrito <img src="images/trash3.svg" alt="" width="16" /></a></td>
