@@ -1,121 +1,89 @@
-
-function mostrarMensaje() {
-    let nombreyapellido = document.getElementById("nombreyapellido").value;
-    let textoError = document.getElementById("textoError");
-
-    if (nombreyapellido == "") {
-        textoError.innerHTML = "Ingrese un valor al Campo Nombre!"
-    } else {
-        textoError.innerHTML = "";
-        let mensaje = document.createElement("div");
-        mensaje.innerHTML = `<h3>${nombreyapellido}</h3>`;
-        document.body.appendChild(mensaje);
-    }
-
-    let correo = document.getElementById("correo").value;
-    let correoError = document.getElementById("correoError");
-
-    if (correo == "") {
-        correoError.innerHTML = "Ingrese un valor al Campo Nombre!"
-    } else {
-        correoError.innerHTML = "";
-        let mensaje1 = document.createElement("div");
-        mensaje1.innerHTML = `<h3>${correo}</h3>`;
-        document.body.appendChild(mensaje1);
-    }
-
-    let velocidad = document.getElementById("velocidad").value;
-    let velocidadError = document.getElementById("velocidadError");
-
-    if (velocidad == "") {
-        velocidadError.innerHTML = "Ingrese la velocidad deseada."
-    } else {
-        correoError.innerHTML = "";
-        let mensaje3 = document.createElement("div");
-        mensaje3.innerHTML = `<h3>${velocidad}</h3>`;
-        document.body.appendChild(mensaje3);
-    }
-
-    let cable = document.getElementById("cable").value;
-    let cableError = document.getElementById("cableError");
-
-    if (cable == "") {
-        cableError.innerHTML = "Ingrese las opciones Si O No."
-    } else {
-        cableError.innerHTML = "";
-        let mensaje4 = document.createElement("div");
-        mensaje4.innerHTML = `<h3>${cable}</h3>`;
-        document.body.appendChild(mensaje4);
-    }
-
-    let bocas = document.getElementById("bocas").value;
-    let bocasError = document.getElementById("bocasError");
-
-    if (bocas == "") {
-        bocasError.innerHTML = "Ingrese por favor una cantidad."
-    } else {
-        bocasError.innerHTML = "";
-        let mensaje5 = document.createElement("div");
-        mensaje5.innerHTML = `<h3>${bocas}</h3>`;
-        document.body.appendChild(mensaje5);
-    }
-
-    let telefonia = document.getElementById("telefonia").value;
-    let telefoniaError = document.getElementById("telefoniaError");
-
-    if (telefonia == "") {
-        telefoniaError.innerHTML = "Ingrese por favor Si o No."
-    } else {
-        bocasError.innerHTML = "";
-        let mensaje6 = document.createElement("div");
-        mensaje6.innerHTML = `<h3>${telefonia}</h3>`;
-        document.body.appendChild(mensaje6);
-
-}
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
 
 
-console.log(
+
+const guardarServicio =() => {
+        let nombreyapellido = document.getElementById("nombreyapellido").value;
+        let correo = document.getElementById("correo").value;
+        let velocidad = document.getElementById("velocidad").value;
+        let telefonia = document.getElementById("telefonia").value;
+        let cable = document.getElementById("cable").value;
+        let diaAlta = document.getElementById("diaAlta").value;
+        let diaAlternativo = document.getElementById("diaAlternativo").value;
+        const servicio = {nombreyapellido, correo, velocidad, cable, telefonia, diaAlta, diaAlternativo};
+        localStorage.setItem("servicio", JSON.stringify(servicio))
+
+  alert("Estimado " + nombreyapellido + " sus datos han sido guardados, presione verificar y asegúrese que la información ingresada sea correcta y luego, presione enviar. Muchas gracias")
+
+
+  console.log(
     "Bienvenido a JSON: " +
-    nombreyapellido +
-      " " +
-      "\nVerifique su correo electrónico: " +
-      correo +
-      "\nVelocidad de internet seleccionada: " +
-      velocidad +
-      "\nDesea contratar servicio de cable: " +
-      cable +
-      "\nCuantos dispositivos de cablevisión conectará: " +
-      bocas + 
-      "\nDesea contratar servicio de telefonía movil? " +
-      telefonia
-
+    nombreyapellido
   )
 
 
-
-alert(
-    "Bienvenido a JSON: " +
-    nombreyapellido +
-      " " +
-      "\nVerifique su correo electrónico: " +
-      correo +
-      "\nVelocidad de internet seleccionada: " +
-      velocidad +
-      "\nDesea contratar servicio de cable: " +
-      cable +
-      "\nCuantos dispositivos de cablevisión conectará: " +
-      bocas + 
-      "\nDesea contratar servicio de telefonía movil? " +
-      telefonia
-
-  );
-
-  for (let i = 1; i <= 3; i++) {
-    let ingresarDia = prompt("Ingrese Dia disponble para hacer la conexion");
-
-    alert("Opcion " + i + " para el día: " + ingresarDia);
-  }
-
-  alert("Pronto nos contactaremos")
-
 }
+
+
+
+const verificarServicio = () => {
+    const servicio = JSON.parse(localStorage.getItem("servicio"));
+    let salida = `<p>Verifique que todos los campos estén completos y sean correctos:</p>
+    <p>Nombre y apellido: <b>${servicio.nombreyapellido}</b><br>
+    Email: <b>${servicio.correo}</b><br>
+    Velocidad seleccionada: <b>${servicio.velocidad}</b><br>
+    Contratará servicio de cable?: <b>${servicio.cable}</b><br>
+    Contratará servicio de telefonía?: <b>${servicio.telefonia}</b><br>
+    Día para instalación del servicio: <b>${servicio.diaAlta}</b><br>
+    Día alternativo: <b>${servicio.diaAlternativo}</b><br>
+    </p>`;
+    document.getElementById("salida").innerHTML = salida;
+    console.log("Verifique sus datos!");
+}
+
+
+
+
+document.getElementById("boton1").addEventListener("click", guardarServicio)
+document.getElementById("boton2").addEventListener("click", verificarServicio)
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+

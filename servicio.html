@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS 3er Preentrega</title>
+    <title>Servicios</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -20,38 +20,109 @@
 
   <Main class="container py-3">
     <h1 id="titulo_encabezado" class="alert alert-warning text-center display-6">Solicitud de alta de servicio</h1>
-  <form>
+
+  
+  <form class="needs-validation" novalidate>
+      <div class="mb-3">
+        <input type="text" class="form-control" id="nombreyapellido" placeholder="Nombre y Apellido" rows="1" required>
+        <div class="valid-feedback">
+          Correcto
+        </div>
+        <div class="invalid-feedback">Complete Nombre y Apellido</div>
+      </div>
+
   <div class="mb-3">
-    <textarea class="form-control" id="nombreyapellido" placeholder="Nombre y Apellido" rows="1"></textarea>
-    <div id="textoError" class="form-text text-danger"></div>
+    <input type="email" class="form-control" id="correo" placeholder="nombre@correo.com" required>
+    <div class="valid-feedback">
+      Correcto
+    </div>
+    <div class="invalid-feedback">Complete su correo electrónico</div>
   </div>
+ 
   <div class="mb-3">
-    
-    <input type="email" class="form-control" id="correo" placeholder="nombre@correo.com">
-    <div id="correoError" class="form-text text-danger"></div>
-  </div>
-  <div class="mb-3">
-    <textarea class="form-control" id="velocidad" placeholder="Ingrese la velocidad de internet deseada (256MB, 512MB o 1024MB)" rows="1"></textarea>
-    <div id="velocidadError" class="form-text text-danger"></div>
-  </div>
-  <div class="mb-3">
-    <textarea class="form-control" id="cable" placeholder="Desea contratar servicio de cable? (SI/NO)" rows="1"></textarea>
-    <div id="cableError" class="form-text text-danger"></div>
-  </div>
-  <div class="mb-3">
-    <textarea class="form-control" id="bocas" placeholder="Cuantos televisores desea conectar (Máximo 5)" rows="1"></textarea>
-    <div id="bocasError" class="form-text text-danger"></div>
-  </div>
-  <div class="mb-3">
-    <textarea class="form-control" id="telefonia" placeholder="Desea contratar servicio de telefonía movil? (SI/NO)" rows="1"></textarea>
-    <div id="telefoniaError" class="form-text text-danger"></div>
+    <select class="form-select" id="velocidad" aria-label="Default select example" required>
+      <option selected disabled value="">Seleccione velocidad deseada</option>
+      <option value="256 MB">256 MB</option>
+      <option value="512 MB">512 MB</option>
+      <option value="1024 MB">1024 MB</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccione una velocidad de internet.
+    </div>
   </div>
 
-  <br>
-  <div class="d-grid gap-2 col-6 mx-auto">
-    <button class="btn btn-dark" type="button" onClick="mostrarMensaje()">Solicitar</button>
+  <div class="mb-3">
+    <select class="form-select" id="cable" aria-label="Default select example" required>
+      <option selected disabled value="">Desea contratar servicio de cable?</option>
+      <option value="Si">Si</option>
+      <option value="No">No</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccione una velocidad de internet.
+    </div>
   </div>
+  
+  <div class="mb-3">
+    <select class="form-select" id="telefonia" aria-label="Default select example" required>
+      <option selected disabled value="">Desea contratar servicio de telefonía movil?</option>
+      <option value="Si">Si</option>
+      <option value="No">No</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccione una velocidad de internet.
+    </div>
+  </div>
+  
+  <div class="mb-3">
+    <select class="form-select" id="diaAlta" aria-label="Default select example" required>
+      <option selected disabled value="">Seleccione un día de disponibilidad para alta de servicio?</option>
+      <option value="Lunes">Lunes</option>
+      <option value="Martes">Martes</option>
+      <option value="Miercoles">Miercoles</option>
+      <option value="Jueves">Jueves</option>
+      <option value="Viernes">Viernes</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccione una opción.
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <select class="form-select" id="diaAlternativo" aria-label="Default select example" required>
+      <option selected disabled value="">Seleccione un día de disponibilidad para alta de servicio?</option>
+      <option value="Lunes">Lunes</option>
+      <option value="Martes">Martes</option>
+      <option value="Miercoles">Miercoles</option>
+      <option value="Jueves">Jueves</option>
+      <option value="Viernes">Viernes</option>
+    </select>
+    <div class="invalid-feedback">
+      Por favor seleccione una opción.
+    </div>
+  </div>
+
+  <div class="d-grid gap-2 col-6 mx-auto">
+    <button class="btn btn-dark" type="submit" id="boton1">Guardar Datos</button>
+  </div>
+
+  <div class="card">
+    <div class="d-grid gap-2 col-6 mx-auto">
+      <button class="btn btn-dark" type="button" id="boton2">Verficar</button>
+    </div>
+    
+
+
+  <div class="col p-5 bg-light">
+     <div id="salida"></div>
+  </div>
+
+
 </form>
+ 
+<br>
+<a class="d-grid gap-2 col-6 mx-auto btn btn-dark" href="index.html" role="button">Enviar</a>
+
+</div>
 <br>
 
 
