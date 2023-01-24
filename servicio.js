@@ -31,6 +31,8 @@ const guardarServicio =() => {
         const servicio = {nombreyapellido, correo, velocidad, cable, telefonia, diaAlta, diaAlternativo};
         localStorage.setItem("servicio", JSON.stringify(servicio))
 
+
+
   alert("Estimado " + nombreyapellido + " sus datos han sido guardados, presione verificar y asegúrese que la información ingresada sea correcta y luego, presione enviar. Muchas gracias")
 
 
@@ -41,6 +43,7 @@ const guardarServicio =() => {
 
 
 }
+
 
 
 
@@ -63,7 +66,19 @@ const verificarServicio = () => {
 
 
 document.getElementById("boton1").addEventListener("click", guardarServicio)
+
+
 document.getElementById("boton2").addEventListener("click", verificarServicio)
+
+function nosContactaremos () {
+Swal.fire(
+  'Pronto nos contactaremos',
+  'Puede cerrar la página.',
+  'success'
+)
+}
+
+document.getElementById("boton3").addEventListener("click", nosContactaremos)
 
 
 
