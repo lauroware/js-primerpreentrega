@@ -7,8 +7,8 @@ const renderProductosCarrito = () => {
         salida = `<table class="table-secomdary">
         <tbody>
         <tr>
-        <td colspan="5" class="text-end"><a href="#" class="btn btn-dark" onClick="vaciarCarrito()">Vaciar Carrito <img src="images/trash3.svg" alt="" width="16" /></a></td>
-        </tr>`;
+        <td colspan="5" class="text-end"><a href="#" class="btn btn-dark" onClick="vaciarCarrito()">Vaciar Carrito <img src="" alt="" width="16" /></a><a href="https://wa.me/5491162366175" class="btn btn-dark" onClick="">Finalizar Compra <img src="" alt="" width="1" /></a></td>
+        </tr>`; 
 
         for (let producto of productos_carrito) {
             salida += `<tr>
