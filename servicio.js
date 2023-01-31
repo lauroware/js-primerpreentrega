@@ -1,11 +1,9 @@
-// Example starter JavaScript for disabling form submissions if there are invalid fields
+// Esto lo tome de Boostrap para hacer validaciones
 (() => {
     'use strict'
   
-    // Fetch all the forms we want to apply custom Bootstrap validation styles to
     const forms = document.querySelectorAll('.needs-validation')
   
-    // Loop over them and prevent submission
     Array.from(forms).forEach(form => {
       form.addEventListener('submit', event => {
         if (!form.checkValidity()) {
@@ -19,6 +17,7 @@
   })()
 
 
+// formulario para pedir servicio
 
 const guardarServicio =() => {
         let nombreyapellido = document.getElementById("nombreyapellido").value;
@@ -44,8 +43,7 @@ const guardarServicio =() => {
 
 }
 
-
-
+// Esta es la salida del localstorage
 
 const verificarServicio = () => {
     const servicio = JSON.parse(localStorage.getItem("servicio"));
@@ -62,13 +60,32 @@ const verificarServicio = () => {
     console.log("Verifique sus datos!");
 }
 
-
-
-
 document.getElementById("boton1").addEventListener("click", guardarServicio)
-
-
 document.getElementById("boton2").addEventListener("click", verificarServicio)
+
+
+//aqui agrego setTImeout 
+
+const btn = document.querySelector("#boton2");
+const popup = document.querySelector("#popup_mensaje")
+
+btn.addEventListener ("click", () => {
+  popup.classList.add("alert", "alert-danger")
+  popup.innerText = "vericando datos"
+  
+
+  setTimeout(() => {
+    popup.classList.remove("alert-danger");
+    popup.classList.add("alert-sucess");
+    popup.innerText = "Los datos han sido verificados, si son correctos puede solicitar el servicio."
+  }, 3000);
+}
+
+  ) ;
+
+
+
+/* utilice una libreria para el boton nos enviar, aunque no tiene configurada la función */
 
 function nosContactaremos () {
 Swal.fire(

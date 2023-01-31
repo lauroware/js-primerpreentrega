@@ -15,13 +15,18 @@ const renderProductosCarrito = () => {
             <td><img src="imagenes/${producto.imagen}" alt="${producto.nombre}" width="64" /></td>
             <td class="align-middle">${producto.nombre}</td>
             <td class="align-middle">${producto.cantidad} X ${producto.precio}</td>
-            <td class="align-middle">$${producto.cantidad * producto.precio}</td>
+            <td class="align-middle">U$${producto.cantidad * producto.precio}</td>
             <td class="align-middle text-end"><a href="#" title="Eliminar Producto" onClick="eliminarProducto(${producto.id});"><img src="imagenes/bote.png" alt="Eliminar Producto" width="25" /></a></td>`;
         }
 
         salida += `<tr>
         <td colspan="3"><b>Suma Total</b></td>
-        <td><b>$${sumaCarrito()}</b></td>
+        <td><b>U$${sumaProductosCarrito()}</b></td>
+        <td>&nbsp;</td>
+        </tr>
+        <tr>
+        <td colspan="3"><b>Valor aproximado en pesos argentinos</b></td>
+        <td><b>$${sumaProductosCarrito()*380}</b></td>
         <td>&nbsp;</td>
         </tr>
         </tbody>

@@ -1,4 +1,5 @@
 
+
 const renderProductos= () => {
     const productos = cargarProductosLS();
     let salida = "";
@@ -19,5 +20,8 @@ const renderProductos= () => {
     document.getElementById("productos").innerHTML = salida;
   }
   
+  
   renderProductos ();
   renderBotonCarrito();
+
+ 

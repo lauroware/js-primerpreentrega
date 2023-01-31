@@ -57,7 +57,7 @@ const totalCarrito = () => {
 }
 
 
-const sumaCarrito = () => {
+const sumaProductosCarrito = () => {
     const productos_carrito = cargarProductosCarrito();
 
     return productos_carrito.reduce((total, item) => total += item.cantidad * item.precio, 0);
